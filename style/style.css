@@ -1,0 +1,296 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+:root {
+  /*Primary*/
+
+  --Lime-Green: hsl(163, 72%, 41%);
+  --Bright-Red: hsl(356, 69%, 56%);
+
+  --Facebook: hsl(208, 92%, 53%);
+  --Twitter: hsl(203, 89%, 53%);
+  --Instagram: linear-gradient(90deg, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+  --YouTube: hsl(348, 97%, 39%);
+
+  /*Dark Theme*/
+
+  --Toggle-dark: linear-gradient(45deg, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+
+  /*Light Theme*/
+
+  --Toggle-light: hsl(230, 22%, 74%);
+
+  /*Dark Theme*/
+
+  --Very-Dark-Blue-BG: hsl(230, 17%, 14%);
+  --Very-Dark-Blue-Top-Pattern: hsl(232, 19%, 15%);
+  --Dark-Desaturated-Blue-Card-BG: hsl(228, 28%, 20%);
+  --Desaturated-Blue-Text: hsl(228, 34%, 66%);
+  --White-Text: hsl(0, 0%, 100%);
+
+  /*Light Theme*/
+
+  --White-BG: hsl(0, 0%, 100%);
+  --Very-Pale-Blue-Top-Pattern: hsl(225, 100%, 98%);
+  --Light-Grayish-Blue-Card-BG: hsl(227, 47%, 96%);
+  --Dark-Grayish-Blue-Text: hsl(228, 12%, 44%);
+  --Very-Dark-Blue-Text: hsl(230, 17%, 14%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+body {
+  background: var(--Very-Dark-Blue-BG);
+  color: var(--White-Text);
+}
+body.light {
+  background: var(--White-BG);
+  color: var(--Very-Dark-Blue-Text);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 2.5rem;
+  margin: 0 auto;
+  padding: 2rem 0;
+  width: 800px;
+  min-height: 100vh;
+}
+
+/* Header Part */
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+#header .part_1 {
+  position: relative;
+}
+#header .part_1 h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+#header .part_1 p {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--Desaturated-Blue-Text);
+  margin-top: 0.2rem;
+}
+
+#header .part_2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+#header .part_2 label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--Desaturated-Blue-Text);
+}
+
+input[type="checkbox"] {
+  margin: 0 0.3rem 0 0.3rem;
+  width: 32px;
+  height: 15px;
+  outline: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background: var(--Toggle-dark);
+  border-radius: 20px;
+  position: relative;
+  transition: 0.4s linear;
+}
+input[type="checkbox"]:hover {
+  background: var(--Toggle-dark) !important;
+}
+body.light input[type="checkbox"] {
+  background: var(--Toggle-light);
+}
+
+input[type="checkbox"]:before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 7%;
+  background-color: var(--Very-Dark-Blue-Top-Pattern);
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 25px;
+  transition: 0.4s linear;
+}
+body.light input[type="checkbox"]:before {
+  background-color: var(--Very-Pale-Blue-Top-Pattern);
+}
+input:checked[type="checkbox"]:before {
+  left: 56%;
+}
+
+/*Section_1*/
+#section_1 {
+  width: 100%;
+}
+#section_1 .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--Dark-Desaturated-Blue-Card-BG);
+  width: 200px;
+  border-radius: 3px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.card:hover {
+  box-shadow: inset 5px 10px 10.5rem rgba(255, 255, 255, 0.1);
+}
+body.light .card {
+  background: var(--Light-Grayish-Blue-Card-BG);
+}
+body.light .card:hover {
+  box-shadow: inset 5px 10px 10.5rem rgba(0, 0, 0, 0.1);
+}
+.container .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.2rem;
+  position: relative;
+}
+.container .card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--Instagram);
+  border-radius: 3px 3px 0 0;
+}
+.container .card:nth-child(1)::after {
+  background: var(--Facebook);
+}
+.container .card:nth-child(2)::after {
+  background: var(--Twitter);
+}
+.container .card:last-child::after {
+  background: var(--YouTube);
+}
+.container .card .social_part,
+.container .status_part {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.social_part p,
+.card .part_1 p {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--Desaturated-Blue-Text);
+}
+.followers_part h2 {
+  font-size: 2.3rem;
+}
+.followers_part p {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: var(--Desaturated-Blue-Text);
+}
+
+.container .status_part {
+  gap: 0.3rem;
+}
+.status_part p,
+.grid_container .card .part_2 .status p {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--Lime-Green);
+}
+
+.status_part p.red,
+.grid_container .card .part_2 .status p.red {
+  color: var(--Bright-Red);
+}
+
+/* Section_2 */
+#section_2 {
+  width: 100%;
+}
+#section_2 .title h2 {
+  font-size: 20px;
+}
+
+#section_2 .grid_container {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 180px 1fr);
+  grid-gap: 1.5rem;
+}
+.grid_container .card {
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+.card .part_1,
+.card .part_2 {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+.card .part_2 .status {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* Medium to Small Screen Viewers */
+@media (max-width: 800px) {
+  main {
+    width: 100vw;
+    padding: 2rem 1rem;
+  }
+  #header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+  }
+  #header .part_1::after {
+    content: "";
+    position: absolute;
+    bottom: -45%;
+    left: 0;
+    width: 370px;
+    height: 1px;
+    background: var(--Desaturated-Blue-Text);
+  }
+  #header .part_2 {
+    justify-content: space-between;
+    width: 100%;
+  }
+  #section_1 .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  #section_2 .grid_container {
+    grid-template-columns: 100%;
+    grid-gap: 1rem;
+  }
+  .card,
+  .grid_container .card {
+    width: 100%;
+  }
+}
